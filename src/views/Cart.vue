@@ -3,10 +3,10 @@
     <h1>My Cart</h1>
     <h1>Cart price: R$ {{ cartPrice }}</h1>
     <div v-for="(product, index) in cart" :key="index">
-      <h4>{{ product.name }}</h4>
-      <img :src="product.image">
+      <div class="product-div">
+        <Product :product="product"/>
+      </div>
       <div class="info">
-        <h2>Price: {{ product.price }}</h2>
         <h2>Quantity: {{ product.quant }}</h2>
         <h2>Total: R$ {{ product.price * product.quant }}</h2>
       </div>
@@ -16,11 +16,16 @@
 </template>
 
 <script>
+import Product from '@/components/Product'
+
 export default {
   props: {
     cart: {
       type: Array
     }
+  },
+  components: {
+    Product
   },
   computed: {
     cartPrice () {
@@ -40,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-img {
+.product-div {
   width: 150px;
   height: auto;
 }

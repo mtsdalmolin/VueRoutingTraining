@@ -1,15 +1,14 @@
 <template>
   <div>
-    <h1>{{ CurrentProduct.name }}</h1>
     <router-link to="/cart">My Cart</router-link>
-    <h2>Price: R$ {{ CurrentProduct.price }}</h2>
-    <h2>Discount: {{ CurrentProduct.discount }}%</h2>
+    <Product :product="CurrentProduct"/>
     <button @click="addToCart">Buy for {{ (this.CurrentProduct.price - this.Discount).toFixed(2) }}</button>
-    <img :src="CurrentProduct.image"/>
   </div>
 </template>
 
 <script>
+import Product from '@/components/Product'
+
 export default {
   props: {
     products: {
@@ -18,6 +17,9 @@ export default {
     cart: {
       type: Array
     }
+  },
+  components: {
+    Product
   },
   computed: {
     CurrentProduct () {

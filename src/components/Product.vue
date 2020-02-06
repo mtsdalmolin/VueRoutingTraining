@@ -16,3 +16,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  white-space: nowrap;
+}
+</style>
