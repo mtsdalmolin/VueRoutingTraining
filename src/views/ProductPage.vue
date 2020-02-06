@@ -31,12 +31,10 @@ export default {
   },
   methods: {
     addToCart () {
-      let item = this.CurrentProduct
       let inArray = false
       let paramId = +this.$route.params.id
 
       this.cart.map(product => {
-        console.log(product.id, item.id)
         if (product.id === paramId) {
           product.quant++
           inArray = !inArray
