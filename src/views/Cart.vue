@@ -8,7 +8,7 @@
       </div>
       <div class="info">
         <h2>Quantity: {{ product.quant }}</h2>
-        <h2>Total: R$ {{ product.price * product.quant }}</h2>
+        <h2>Total: R$ {{ (product.price * product.quant).toFixed(2) }}</h2>
       </div>
       <button @click="removeItem(index)">Remove</button>
     </div>
